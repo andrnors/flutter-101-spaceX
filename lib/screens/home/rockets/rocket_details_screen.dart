@@ -102,8 +102,8 @@ class _ImageHeader extends StatelessWidget {
         tag: 'rocket-image-${rocket.id}',
         child: PageView(
           children: [
-            for (final url in rocket.flickrImages)
-              Image.network(url, fit: BoxFit.cover)
+            for (final url in rocket.localImages)
+              Image.asset(url, fit: BoxFit.cover)
           ],
         ),
       ),

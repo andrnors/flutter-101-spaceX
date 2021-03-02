@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:rockets/models/crew_member.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -20,7 +19,14 @@ class CrewMemberDetails extends StatelessWidget {
       ),
       body: Stack(
         children: [
-          _ImageHeader(url: member.image),
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(member.localImage),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
           Positioned(
               bottom: 0,
               width: MediaQuery.of(context).size.width,
@@ -36,13 +42,16 @@ class CrewMemberDetails extends StatelessWidget {
                       SizedBox(
                         height: 20,
                       ),
-                      Text('Agency: ${member.agency}', style: theme.subtitle1.copyWith(color: Colors.white)),
+                      Text('Agency: ${member.agency}',
+                          style: theme.subtitle1.copyWith(color: Colors.white)),
                       SizedBox(
                         height: 20,
                       ),
-                      Text('Status: ${member.status}', style: theme.subtitle1.copyWith(color: Colors.white)),
+                      Text('Status: ${member.status}',
+                          style: theme.subtitle1.copyWith(color: Colors.white)),
                       Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 12, horizontal: 8),
                         child: SizedBox(
                           height: 46,
                           width: MediaQuery.of(context).size.width,
@@ -54,30 +63,6 @@ class CrewMemberDetails extends StatelessWidget {
                     ],
                   )))
         ],
-      ),
-    );
-  }
-}
-
-class _ImageHeader extends StatelessWidget {
-  final String url;
-
-  _ImageHeader({@required this.url});
-
-  @override
-  Widget build(BuildContext context) {
-    return Hero(
-      tag: url,
-      child: CachedNetworkImage(
-        imageUrl: url,
-        imageBuilder: (context, imageProvider) => Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: imageProvider,
-              fit: BoxFit.cover,
-            ),
-          ),
-        ),
       ),
     );
   }

@@ -27,7 +27,7 @@ class RocketListTile extends StatelessWidget {
               borderRadius: BorderRadius.circular(8.0),
               child: AspectRatio(
                   aspectRatio: 3 / 2,
-                  child: Image.network(rocket.flickrImages.first, fit: BoxFit.cover,)),
+                  child: Image.asset(rocket.localImages.first, fit: BoxFit.cover,)),
             ),
           ),
       title: Text(rocket.name),

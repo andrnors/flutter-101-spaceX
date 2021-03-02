@@ -23,11 +23,8 @@ class CrewMemberTile extends StatelessWidget {
                 ClipRRect(
                   clipBehavior: Clip.antiAlias,
                   borderRadius: BorderRadius.circular(25),
-                  child: Hero(
-                    tag: crewMember.image,
-                    child: Image.network(
-                      crewMember.image,
-                    ),
+                  child: Image.asset(
+                    crewMember.localImage,
                   ),
                 ),
                 Positioned(
