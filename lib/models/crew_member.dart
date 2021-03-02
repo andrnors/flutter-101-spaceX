@@ -28,4 +28,8 @@ class CrewMember {
         status: json['status'],
         id: json['id']);
   }
+
+  String get localImage {
+    return 'assets/crew/$id.jpeg';
+  }
 }

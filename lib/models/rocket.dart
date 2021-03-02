@@ -1,7 +1,6 @@
 import 'package:meta/meta.dart';
 
 class Rocket {
-
   const Rocket({
     @required this.id,
     @required this.name,
@@ -27,8 +26,6 @@ class Rocket {
   final double diameter;
   final double mass;
   final String wikipedia;
-
-
 
   factory Rocket.fromJson(Map<String, dynamic> json) {
     return Rocket(
@@ -60,5 +57,13 @@ class Rocket {
       'mass': mass,
       'wikipedia': wikipedia,
     };
+  }
+
+  List<String> get localImages {
+   return flickrImages.asMap().entries.map((entry) {
+      int index = entry.key;
+      index += 1;
+      return 'assets/rockets/$id/img-$index.jpg';
+    }).toList();
   }
 }
