@@ -36,24 +36,11 @@ class CrewMemberDetails extends StatelessWidget {
                       SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        children: [
-                          Text('Agency: ', style: theme.subtitle1.copyWith(color: Colors.white)),
-                          Text(
-                            member.agency,
-                            style: theme.subtitle1.copyWith(color: Colors.white),
-                          ),
-                        ],
-                      ),
+                      Text('Agency: ${member.agency}', style: theme.subtitle1.copyWith(color: Colors.white)),
                       SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        children: [
-                          Text('Status: ', style: theme.subtitle1.copyWith(color: Colors.white)),
-                          Text(member.status, style: theme.subtitle1.copyWith(color: Colors.white)),
-                        ],
-                      ),
+                      Text('Status: ${member.status}', style: theme.subtitle1.copyWith(color: Colors.white)),
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
                         child: SizedBox(
