@@ -10,10 +10,10 @@ class RocketDetailsScreen extends StatelessWidget {
         super(key: key);
 
   bool get _hasAlreadyFlown =>
-      rocket?.firstFlight?.isBefore(DateTime.now()) ?? false;
+      rocket.firstFlight.isBefore(DateTime.now());
 
   int get _daysSinceFirstFlight =>
-      rocket?.firstFlight?.difference(DateTime.now())?.abs()?.inDays ?? 1;
+      rocket.firstFlight.difference(DateTime.now()).abs().inDays;
 
   String get _firstFlightLabel {
     final date = rocket.firstFlight;
@@ -30,13 +30,13 @@ class RocketDetailsScreen extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          if (rocket.flickrImages.isNotEmpty) _ImageHeader(rocket: rocket),
+          _ImageHeader(rocket: rocket),
           ListTile(
             title: Text(
               rocket.name,
               style: textTheme.headline6,
             ),
-            subtitle: rocket.active ? null : Text('Inactive'),
+            subtitle: rocket.active ? const Text('Active') : const Text('Inactive'),
           ),
           Padding(
             padding: const EdgeInsets.all(16.0),
@@ -71,7 +71,7 @@ class RocketDetailsScreen extends StatelessWidget {
             subtitle: Text('total mass'),
           ),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 16),
+            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 6),
             height: 56,
             child: ElevatedButton(
                 onPressed: () {

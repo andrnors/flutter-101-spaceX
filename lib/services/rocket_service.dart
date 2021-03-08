@@ -13,23 +13,29 @@ class RocketService {
 
   Future<List<CrewMember>> getCrewMembers() async {
     final url = '$apiUrl/crew';
-    final response = await http.get(url);
+    final response = await http.get(url); // Fetch data from API
 
+    // Verify that the data is good
     if (response.statusCode != 200) {
       throw HttpException('${response.statusCode}: ${response.reasonPhrase}',
           uri: Uri.tryParse(url));
     }
 
+    // Convert the body to json with the default dart json-decoder.
+    // We know that the endpoint returns a list, so we can cast it directly
+    // to a dynamic List<dynamic> (read list of json objects)
     final jsonData = jsonDecode(response.body) as List;
 
+    // Convert json data to a CrewMember
     return jsonData.map((jsonObject) => CrewMember.fromJson(jsonObject)).toList();
 
   }
 
   Future<List<Rocket>> getRockets() async {
     final url = '$apiUrl/rockets';
-    final response = await http.get(url);
+    final response = await http.get(url); // Fetch data from API
 
+    // Verify that the data is good
     if (response.statusCode != 200) {
       throw HttpException('${response.statusCode}: ${response.reasonPhrase}',
           uri: Uri.tryParse(url));
@@ -38,12 +44,12 @@ class RocketService {
     // Get json data from the response (currently a string)
     final body = response.body;
 
-    // Convert the body to json and with the default dart json-decoder.
-    // We know that the endpoint returns a list, so we can cast it directly to a dynamic List<dynamic> (read list of json objects)
+    // Convert the body to json with the default dart json-decoder.
+    // We know that the endpoint returns a list, so we can cast it directly
+    // to a dynamic List<dynamic> (read list of json objects)
     final jsonData = jsonDecode(body) as List;
 
-    // Convert data to rocket from json
-
+    // Convert json data to a Rocket
     final rockets =
         jsonData.map((jsonObject) => Rocket.fromJson(jsonObject)).toList();
 
@@ -53,7 +59,7 @@ class RocketService {
   List<Rocket> getRocketsMock() {
     return [
       Rocket(
-        id: 'flacon_1',
+        id: '5e9d0d95eda69973a809d1ec',
         name: 'Falcon 1',
         description: 'The Falcon 1 was an expendable launch system privately '
             'developed and manufactured by SpaceX during 2006-2009. '
@@ -73,7 +79,7 @@ class RocketService {
         wikipedia: "https://en.wikipedia.org/wiki/Falcon_9",
       ),
       Rocket(
-        id: 'falcon_heavy',
+        id: '5e9d0d95eda69974db09d1ed',
         name: 'Falcon Heavy',
         description: 'With the ability to lift into orbit over 54 metric tons '
             '(119,000 lb)--a mass equivalent to a 737 jetliner loaded with '
