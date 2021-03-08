@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rockets/screens/home/rockets/rocket_details_screen.dart';
 import 'package:rockets/services/rocket_service.dart';
 
 import 'rocket_tile.dart';
@@ -14,7 +13,7 @@ class RocketList extends StatelessWidget {
         if (snapshot.hasError) {
           return Text('Houston we have a problem 👽');
         } else if (!snapshot.hasData) {
-          return Center(child: CircularProgressIndicator());
+          return Center(child: CircularProgressIndicator(backgroundColor: Colors.orange,));
         } else {
           final rockets = snapshot.data;
           return ListView(children: [
@@ -22,9 +21,11 @@ class RocketList extends StatelessWidget {
               RocketTile(
                   rocket: rocket,
                   onTap: () {
+                    // Todo: Make the Navigator return a RocketDetailsScreen,
+                    // containing the current Rocket
                     Navigator.of(context)
                         .push(MaterialPageRoute(builder: (context) {
-                      return RocketDetailsScreen(rocket: rocket);
+                      return null;
                     }));
                   })
           ]);
