@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
@@ -12,6 +13,7 @@ class AppTheme {
       primaryTextTheme: textTheme,
       dividerTheme: _dividerTheme,
       elevatedButtonTheme: _elevatedButtonTheme,
+      appBarTheme: _appBarTheme,
     );
   }
 
@@ -19,14 +21,14 @@ class AppTheme {
     final textTheme = _getTextTheme(brightness: Brightness.dark);
 
     return ThemeData(
-      brightness: Brightness.dark,
-      primaryColor: _primaryColor,
-      accentColor: _accentColor,
-      textTheme: textTheme,
-      primaryTextTheme: textTheme,
-      dividerTheme: _dividerTheme,
-      elevatedButtonTheme: _elevatedButtonTheme,
-    );
+        brightness: Brightness.dark,
+        primaryColor: _primaryColor,
+        accentColor: _accentColor,
+        textTheme: textTheme,
+        primaryTextTheme: textTheme,
+        dividerTheme: _dividerTheme,
+        elevatedButtonTheme: _elevatedButtonTheme,
+        appBarTheme: _appBarTheme);
   }
 
   static const _primaryColor = Colors.black;
@@ -45,6 +47,11 @@ class AppTheme {
     ),
   );
 
+  static final _appBarTheme = AppBarTheme(
+    backgroundColor: _primaryColor,
+    brightness: Brightness.dark,
+  );
+
   static _getTextTheme({@required Brightness brightness}) {
     final themeData = ThemeData(brightness: brightness);
 
@@ -55,8 +62,8 @@ class AppTheme {
       headline4: GoogleFonts.cairo(),
       headline5: GoogleFonts.cairo(),
       headline6: GoogleFonts.cairo(),
-      bodyText1:  GoogleFonts.cairo(),
-      bodyText2:  GoogleFonts.cairo(),
+      bodyText1: GoogleFonts.cairo(),
+      bodyText2: GoogleFonts.cairo(),
     );
   }
 }
