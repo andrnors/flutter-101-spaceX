@@ -5,7 +5,8 @@ class RocketTile extends StatelessWidget {
   final Rocket rocket;
   final VoidCallback onTap;
 
-  RocketTile({Key key, @required this.onTap, this.rocket}) : super(key: key);
+  RocketTile({Key? key, required this.onTap, required this.rocket})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +20,13 @@ class RocketTile extends StatelessWidget {
         onTap: onTap,
         child: Container(
           padding: EdgeInsets.all(6),
-          width: width,
+          width: width as double?,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(25),
           ),
           child: Stack(children: [
             Hero(
-              tag: 'rocket-image-${rocket.id}',
+              tag: 'rocket-image-${rocket.id!}',
               child: ClipRRect(
                 clipBehavior: Clip.antiAlias,
                 borderRadius: BorderRadius.circular(25),
@@ -50,20 +51,20 @@ class RocketTile extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        rocket.name,
-                        style: Theme.of(context).textTheme.headline6.copyWith(
+                        rocket.name!,
+                        style: Theme.of(context).textTheme.headline6!.copyWith(
                               color: Colors.white,
                             ),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(bottom: 12),
                         child: Text(
-                          rocket.description,
+                          rocket.description!,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style: Theme.of(context)
                               .textTheme
-                              .subtitle2
+                              .subtitle2!
                               .copyWith(color: Colors.white),
                         ),
                       )

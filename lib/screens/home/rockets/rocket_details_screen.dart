@@ -5,12 +5,9 @@ import 'package:url_launcher/url_launcher.dart';
 class RocketDetailsScreen extends StatelessWidget {
   final Rocket rocket;
 
-  RocketDetailsScreen({Key key, @required this.rocket})
-      : assert(rocket != null),
-        super(key: key);
+  RocketDetailsScreen({Key? key, required this.rocket}) : super(key: key);
 
-  bool get _hasAlreadyFlown =>
-      rocket.firstFlight.isBefore(DateTime.now());
+  bool get _hasAlreadyFlown => rocket.firstFlight.isBefore(DateTime.now());
 
   int get _daysSinceFirstFlight =>
       rocket.firstFlight.difference(DateTime.now()).abs().inDays;
@@ -26,22 +23,23 @@ class RocketDetailsScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(rocket.name),
+        title: Text(rocket.name!),
       ),
       body: ListView(
         children: [
           _ImageHeader(rocket: rocket),
           ListTile(
             title: Text(
-              rocket.name,
+              rocket.name!,
               style: textTheme.headline6,
             ),
-            subtitle: rocket.active ? const Text('Active') : const Text('Inactive'),
+            subtitle:
+                rocket.active! ? const Text('Active') : const Text('Inactive'),
           ),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Text(
-              rocket.description,
+              rocket.description!,
               style: textTheme.subtitle2,
             ),
           ),
@@ -75,7 +73,7 @@ class RocketDetailsScreen extends StatelessWidget {
             height: 56,
             child: ElevatedButton(
                 onPressed: () {
-                  launch(rocket.wikipedia);
+                  launch(rocket.wikipedia!);
                 },
                 child: Center(
                   child: Text('View Wikipedia Article'),
@@ -90,9 +88,7 @@ class RocketDetailsScreen extends StatelessWidget {
 class _ImageHeader extends StatelessWidget {
   final Rocket rocket;
 
-  _ImageHeader({Key key, @required this.rocket})
-      : assert(rocket != null),
-        super(key: key);
+  _ImageHeader({Key? key, required this.rocket}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
