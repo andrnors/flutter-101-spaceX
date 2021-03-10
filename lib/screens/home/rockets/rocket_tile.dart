@@ -5,7 +5,8 @@ class RocketTile extends StatelessWidget {
   final Rocket rocket;
   final VoidCallback onTap;
 
-  RocketTile({Key key, @required this.onTap, this.rocket}) : super(key: key);
+  RocketTile({Key? key, required this.onTap, required this.rocket})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +14,7 @@ class RocketTile extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     // We create a width variable that is equal to the screen size but no larger than 650 pixels
     final width = MediaQuery.of(context).size.width > 650
-        ? 650
+        ? 650.0
         : MediaQuery.of(context).size.width;
 
     return Align(
@@ -23,7 +24,8 @@ class RocketTile extends StatelessWidget {
         child: Container(
           // Todo: Add padding to all edges of the image
           padding: null, // Hint EdgeInsets.all might help you
-          width: width, // This sets width of container to fill the entire screen
+          width:
+              width, // This sets width of container to fill the entire screen
           decoration: BoxDecoration(
             // Todo: Add BorderRadius as a decoration.
             borderRadius:
@@ -69,7 +71,7 @@ class RocketTile extends StatelessWidget {
                     children: [
                       Text(
                         'Add a rocket name here',
-                        style: textTheme.headline6.copyWith(
+                        style: textTheme.headline6?.copyWith(
                           color: Colors.white,
                         ),
                       ),

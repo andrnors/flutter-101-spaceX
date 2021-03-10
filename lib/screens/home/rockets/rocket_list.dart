@@ -15,7 +15,7 @@ class RocketList extends StatelessWidget {
         } else if (!snapshot.hasData) {
           return Center(child: CircularProgressIndicator());
         } else {
-          final rockets = snapshot.data;
+          final List rockets = snapshot.data as List;
           return ListView(children: [
             for (final rocket in rockets)
               RocketTile(rocket: rocket, onTap: () {})
