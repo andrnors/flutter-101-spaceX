@@ -1,22 +1,20 @@
-import 'package:meta/meta.dart';
-
 class CrewMember {
-  final String name;
-  final String agency;
-  final String image;
-  final String wikipedia;
+  final String? name;
+  final String? agency;
+  final String? image;
+  final String? wikipedia;
   final List<String> launches;
-  final String status;
-  final String id;
+  final String? status;
+  final String? id;
 
   CrewMember(
-      {@required this.name,
-      @required this.agency,
-      @required this.image,
-      @required this.wikipedia,
-      @required this.launches,
-      @required this.status,
-      @required this.id});
+      {required this.name,
+      required this.agency,
+      required this.image,
+      required this.wikipedia,
+      required this.launches,
+      required this.status,
+      required this.id});
 
   factory CrewMember.fromJson(Map<String, dynamic> json) {
     return CrewMember(
@@ -29,7 +27,7 @@ class CrewMember {
         id: json['id']);
   }
 
-  String get localImage {
+  String? get localImage {
     return 'assets/crew/$id.jpeg';
   }
 }
