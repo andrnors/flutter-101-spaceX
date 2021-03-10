@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:rockets/screens/home/rockets/rocket_details_screen.dart';
 import 'package:rockets/services/rocket_service.dart';
 
 import 'rocket_tile.dart';
@@ -15,7 +16,7 @@ class RocketList extends StatelessWidget {
         } else if (!snapshot.hasData) {
           return Center(child: CircularProgressIndicator(backgroundColor: Colors.orange,));
         } else {
-          final rockets = snapshot.data;
+          final rockets = snapshot.data as List;
           return ListView(children: [
             for (final rocket in rockets)
               RocketTile(
@@ -25,7 +26,7 @@ class RocketList extends StatelessWidget {
                     // containing the current Rocket
                     Navigator.of(context)
                         .push(MaterialPageRoute(builder: (context) {
-                      return null;
+                      return Scaffold(appBar: AppBar(), body: Center(child: Text('Swap me with a rocket details screen')),);
                     }));
                   })
           ]);

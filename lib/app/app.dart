@@ -7,26 +7,29 @@ import 'package:rockets/screens/home/home_screen.dart';
 import 'package:rockets/services/rocket_service.dart';
 
 class RocketApp extends StatelessWidget {
-
   final RocketService rocketService;
 
-
-  RocketApp({@required this.rocketService}) : assert(rocketService != null);
+  RocketApp({required this.rocketService});
 
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        FutureProvider<List<Rocket>>.value(value: rocketService.getRockets()),
-        FutureProvider<List<CrewMember>>.value(value: rocketService.getCrewMembers()),
+        FutureProvider<List<Rocket>>.value(
+          value: rocketService.getRockets(),
+          initialData: [],
+        ),
+        FutureProvider<List<CrewMember>>.value(
+          value: rocketService.getCrewMembers(),
+          initialData: [],
+        ),
         Provider.value(value: rocketService)
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: AppTheme.light(),
           darkTheme: AppTheme.dark(),
-          home: HomeScreen()
-      ),
+          home: HomeScreen()),
     );
   }
 }
