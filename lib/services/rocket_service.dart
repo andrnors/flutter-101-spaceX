@@ -1,7 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
 import 'package:rockets/models/crew_member.dart';
 import 'package:rockets/models/rocket.dart';
 import 'package:http/http.dart' as http;
@@ -9,11 +7,11 @@ import 'package:http/http.dart' as http;
 class RocketService {
   final String apiUrl;
 
-  RocketService({@required this.apiUrl});
+  RocketService({required this.apiUrl});
 
   Future<List<CrewMember>> getCrewMembers() async {
     final url = '$apiUrl/crew';
-    final response = await http.get(url); // Fetch data from API
+    final response = await http.get(Uri.tryParse(url)!); // Fetch data from API
 
     // Verify that the data is good
     if (response.statusCode != 200) {
@@ -27,13 +25,14 @@ class RocketService {
     final jsonData = jsonDecode(response.body) as List;
 
     // Convert json data to a CrewMember
-    return jsonData.map((jsonObject) => CrewMember.fromJson(jsonObject)).toList();
-
+    return jsonData
+        .map((jsonObject) => CrewMember.fromJson(jsonObject))
+        .toList();
   }
 
   Future<List<Rocket>> getRockets() async {
     final url = '$apiUrl/rockets';
-    final response = await http.get(url); // Fetch data from API
+    final response = await http.get(Uri.tryParse(url)!); // Fetch data from API
 
     // Verify that the data is good
     if (response.statusCode != 200) {

@@ -1,31 +1,29 @@
-import 'package:meta/meta.dart';
-
 class Rocket {
   const Rocket({
-    @required this.id,
-    @required this.name,
-    @required this.description,
-    @required this.active,
-    @required this.boosters,
-    @required this.flickrImages,
-    @required this.firstFlight,
-    @required this.height,
-    @required this.diameter,
-    @required this.mass,
-    @required this.wikipedia,
+    required this.id,
+    required this.name,
+    required this.description,
+    required this.active,
+    required this.boosters,
+    required this.flickrImages,
+    required this.firstFlight,
+    required this.height,
+    required this.diameter,
+    required this.mass,
+    required this.wikipedia,
   });
 
-  final String id;
-  final String name;
-  final String description;
-  final bool active;
-  final int boosters;
+  final String? id;
+  final String? name;
+  final String? description;
+  final bool? active;
+  final int? boosters;
   final List<String> flickrImages;
   final DateTime firstFlight;
   final double height;
   final double diameter;
   final double mass;
-  final String wikipedia;
+  final String? wikipedia;
 
   factory Rocket.fromJson(Map<String, dynamic> json) {
     return Rocket(
@@ -60,7 +58,7 @@ class Rocket {
   }
 
   List<String> get localImages {
-   return flickrImages.asMap().entries.map((entry) {
+    return flickrImages.asMap().entries.map((entry) {
       int index = entry.key;
       index += 1;
       return 'assets/rockets/$id/img-$index.jpg';

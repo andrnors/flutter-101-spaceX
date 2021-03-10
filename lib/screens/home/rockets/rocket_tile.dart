@@ -5,14 +5,15 @@ class RocketTile extends StatelessWidget {
   final Rocket rocket;
   final VoidCallback onTap;
 
-  RocketTile({Key key, @required this.onTap, this.rocket}) : super(key: key);
+  RocketTile({Key? key, required this.onTap, required this.rocket})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
       child: Container(
-        child: Text(rocket.name),
+        child: Text(rocket.name!),
       ),
     );
   }
