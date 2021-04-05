@@ -13,10 +13,10 @@ class Rocket {
     required this.wikipedia,
   });
 
-  final String? id;
+  final String id;
   final String? name;
   final String? description;
-  final bool? active;
+  final bool active;
   final int? boosters;
   final List<String> flickrImages;
   final DateTime firstFlight;

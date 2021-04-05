@@ -33,8 +33,8 @@ class RocketTile extends StatelessWidget {
           ),
           child: Stack(children: [
             Hero(
-              tag: 'rocket-image-${rocket.id}',
               // A unique identifier for the picture. We'll talk about this later
+              tag: 'rocket-image-${rocket.id}',
               child: ClipRRect(
                 clipBehavior:
                     Clip.antiAlias, // Tells how hard we are cutting the image.
