@@ -2,26 +2,25 @@
 
 ## Prerequisites
 
-- A working version of Flutter configured on your machine (Version 1.2 or later).
+- A working version of Flutter configured on your machine (Version 2 or later).
 - At least one setup for either android, iOS or Web.
-- To run the web build, the Flutter-beta channel has to be the chosen channel for your flutter repository.
-
+  
 Run
 
 > flutter doctor
 
-..to verify that you are good to go. 🚀
+..to verify that you are good to go. 🚀 The platform you intend to run on, should be marked with a ✅.
 
-### How to check out the beta channel
+### How to check version
 
-> flutter channel beta
+> flutter --version
+
+```Flutter 2.x.x • channel stable • https://github.com/flutter/flutter.git```
+```Tools • Dart 2.12.x (Should be at least >=2.12.0) ```
+
+To upgrade, run
 > flutter upgrade
-
-### Should I check out the beta?
-
-Why not? It enables web which is nice. This application is also developed in the beta channel, 
-so it should work fine.
-
+> flutter --version
 ## How we are going to work through this course
 
 **First of all, fork this repository so you get access to it.**

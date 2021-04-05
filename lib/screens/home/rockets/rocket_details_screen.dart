@@ -44,7 +44,8 @@ class RocketDetailsScreen extends StatelessWidget {
             ),
             // The ? : syntax is a one-line if-statement.
             // If the rocket is active, we return the text Active else we return Inactive.
-            subtitle: rocket.active! ? const Text('Active') : const Text('Inactive'),
+            subtitle:
+                rocket.active ? const Text('Active') : const Text('Inactive'),
           ),
           Padding(
             padding: const EdgeInsets.all(16.0),
