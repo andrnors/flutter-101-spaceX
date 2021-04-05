@@ -26,7 +26,7 @@ class RocketTile extends StatelessWidget {
           ),
           child: Stack(children: [
             Hero(
-              tag: 'rocket-image-${rocket.id!}',
+              tag: 'rocket-image-${rocket.id}',
               child: ClipRRect(
                 clipBehavior: Clip.antiAlias,
                 borderRadius: BorderRadius.circular(25),

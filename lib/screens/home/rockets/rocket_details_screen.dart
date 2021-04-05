@@ -34,7 +34,7 @@ class RocketDetailsScreen extends StatelessWidget {
               style: textTheme.headline6,
             ),
             subtitle:
-                rocket.active! ? const Text('Active') : const Text('Inactive'),
+                rocket.active ? const Text('Active') : const Text('Inactive'),
           ),
           Padding(
             padding: const EdgeInsets.all(16.0),
