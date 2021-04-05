@@ -13,7 +13,7 @@ class RocketTile extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        child: Text(rocket.name!),
+        child: Text(rocket.name ?? ''),
       ),
     );
   }
