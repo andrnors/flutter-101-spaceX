@@ -9,7 +9,7 @@ class HomeScreen extends StatelessWidget {
         // Todo: Replace the Center and Text Widget with the RocketList
         body: Center(
       child: Text(
-        'Hello Navet 🚀',
+        'Hello TIHLDE 🚀',
         style: TextStyle(fontSize: 30),
       ),
     ));
