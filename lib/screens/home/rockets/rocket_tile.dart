@@ -38,11 +38,8 @@ class RocketTile extends StatelessWidget {
               child: ClipRRect(
                 clipBehavior:
                     Clip.antiAlias, // Tells how hard we are cutting the image.
-                // Todo: Add a border radius to the image as well.
-                // Make it equal to its parent
-                borderRadius: BorderRadius.circular(25),
-                // Todo: Replace the Text below with an Image.
-                // The first image from the Rocket localImages
+                // Todo: Add a border radius, and make it equal to its parent. Hint: The ClipRRect-widget has a border radius prop.
+                // Todo: Replace the Text below with the first image from the Rocket localImages
                 child:
                     Text(''), // Hint: The image widget has a .asset constructor
               ),
